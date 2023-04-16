@@ -13,7 +13,7 @@
             crossorigin="anonymous" />
 
         <!-- linking my css -->
-        <link rel="stylesheet" href="style.css" />
+        <link rel="stylesheet" href="../style.css" />
     </head>
 
     <body>
@@ -24,7 +24,7 @@
                 <div>
                     <!-- logo -->
                     <a class="navbar-brand my-text-secondary">
-                        <img src="images/logo.png" alt="Logo" width="100px" />
+                        <img src="../images/logo.png" alt="Logo" width="100px" />
                     </a>
 
                     <!-- dropdown -->
@@ -67,7 +67,7 @@
                             <div class="row">
                                 <!-- image -->
                                 <div class="col-sm-6 col-xs-12 img-col">
-                                    <img src="./images/product.jpeg" class="card-img-top" alt="..." />
+                                    <img src="../images/product.jpeg" class="card-img-top" alt="..." />
                                 </div>
 
                                 <!-- info -->
@@ -110,7 +110,7 @@
                             <div class="row">
                                 <!-- image -->
                                 <div class="col-sm-6 col-xs-12 img-col">
-                                    <img src="./images/product.jpeg" class="card-img-top" alt="..." />
+                                    <img src="../images/product.jpeg" class="card-img-top" alt="..." />
                                 </div>
 
                                 <!-- info -->
@@ -153,7 +153,7 @@
                             <div class="row">
                                 <!-- image -->
                                 <div class="col-sm-6 col-xs-12 img-col">
-                                    <img src="./images/product.jpeg" class="card-img-top" alt="..." />
+                                    <img src="../images/product.jpeg" class="card-img-top" alt="..." />
                                 </div>
 
                                 <!-- info -->
@@ -273,32 +273,7 @@
             integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
             crossorigin="anonymous"></script>
 
-        <script>
-            function Add(id) {
-                var label = document.getElementById(id);
-                var current = parseInt(label.innerHTML);
-                label.innerHTML = current + 1;
-            }
-
-            function Remove(id) {
-                var label = document.getElementById(id);
-                var current = parseInt(label.innerHTML);
-                if (current > 1) {
-                    label.innerHTML = current - 1;
-                }
-                else if (current == 1) {
-                    var prodnum = id.slice(-2);
-                    console.log(prodnum);
-                    var currprod = document.getElementById("prod" + prodnum);
-                    currprod.classList.add("hide");
-                }
-            }
-
-            function showCard(id) {
-                var card = document.getElementById(id);
-                card.classList.remove('hide');
-            }
-        </script>
+        <script src="../scripts/cart.js"></script>
     </body>
 
 </html>

@@ -1,0 +1,46 @@
+:root {
+    --color-primary: #000;
+    --color-secondary: #fff;
+    --max-img-size: 295px;
+}
+
+.my-bg-primary {
+    background-color: var(--color-primary);
+}
+
+.my-text-secondary {
+    color: var(--color-secondary);
+}
+
+main {
+    margin-top: 100px;
+}
+
+img {
+    object-fit: cover;
+    max-height: var(--max-img-size);
+    max-width: var(--max-img-size);
+}
+
+.hide {
+    display: none;
+}
+
+.vertical-margin-5 {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+/* bootstrap overrides */
+.navbar-brand:hover {
+    color: var(--color-secondary);
+}
+
+.img-col {
+    max-width: var(--max-img-size);
+}
+
+.card {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}

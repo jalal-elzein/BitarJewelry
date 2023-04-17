@@ -34,7 +34,7 @@ label{
     display: block;
     margin: 0 auto;
     position: absolute;
-    top: 10%;
+    top: 5%;
     left: 50%;
     transform: translateX(-50%);
     font-size: xxx-large;
@@ -42,7 +42,7 @@ label{
     font-weight: bolder;
 }
 .divider{
-    border: solid black;
+/* border: solid black;*/
     padding: 0px;
     margin: 0px;
 }
@@ -64,4 +64,10 @@ body{
     border: solid black 2px;
     /* display: flex; */
     display: inline-block;
+}
+.card-img-top{
+    height: 300px;
+}
+.card{
+    border: solid rgb(91, 89, 89) 1px;
 }

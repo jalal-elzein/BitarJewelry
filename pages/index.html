@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="../css/mystyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-tZ8a+ZHYTtXd+10QmJsfaGyX9tWpyk3p3D3qBJdZb8jJN4YnLYOnI4oFElv/8CQWn1kwPOeSgzSXCZlL0lWJYg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Document</title>
+</head>
+<body>
+    <div class = "divider">
+        <img src="../pics/logo-white.png" width="150px"style="padding: 2px;
+    border: 1px solid black;
+    border-radius: 7px;" >
+        <p class="title">Directory</p>  
+    </div> 
+    <br>
+    <br> 
+    <div class="search-key-box">
+        <i class="fas fa-search"></i>
+        <input type="text" placeholder="SearchItem" maxlength="50" autocomplete="off" value="" name="SearchText" class="search-key" id="search-key">
+        <button id="searchBtn" onclick="search()">Search</button>
+    </div>
+    <script>
+		function search() {
+			var query = document.getElementById("searchInput").value;
+			alert("Performing search for query: " + query);
+		}
+	</script>
+    <div class = "searchy">
+    <form style = "margin-top: 10px;">
+        <label for="sort">Sort by:</label>
+        <select id="sort" name="sort">
+          <option value="defualt" id="default">Select</option>
+          <option value="name-asc">Name (A-Z)</option>
+          <option value="name-desc">Name (Z-A)</option>
+          <option value="length-asc">Size (cm) (Low to High)</option>
+          <option value="length-desc">Size (cm) (High to Low)</option>
+          <option value="availability">Availability</option>
+        </select>
+        <label for="filter">Filter by:</label>
+        <select id="filter" name="filter">
+          <option value="defualt" id="default">Select</option>
+          <option value="color">Color</option>
+          <option value="earrings">Earrings</option>
+          <option value="pearls">Pearls Necklace</option>
+          <option value="gold">Gold Necklace</option>
+          <option value="silver">Silver Necklace</option>
+          <option value="pendant">Pendants</option>
+          <option value="chain">Chains</option>
+
+
+        </select>
+        <button type="submit">Apply</button>
+      </form>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <div class="picture-container">
+        <img src="../pics/bodychain.jpg" width="200px" class="pic">
+        <p class="description"> Body Chain Necklace </p>
+      </div>
+    <div class="picture-container">
+        <img src="../pics/ringblue.jpg" width="200px" class="pic">
+        <p class="description"> Blue Sapphire Ring </p>
+      </div>
+    <div class="picture-container">
+        <img src="../pics/ringred.jpg" width="200px" class="pic">
+        <p class="description"> Red Rubellite Ring </p>
+      </div>
+    <div class="picture-container">
+        <img src="../pics/chainwide.jpg" width="200px" class="pic">
+        <p class="description"> Wide Chain </p>
+      </div>
+    <div class="picture-container">
+        <img src="../pics/Screenshot_20230409_183338_Instagram.jpg" width="200px" class="pic">
+        <p class="description"> Pink Ruby Heart Pendant </p>
+    </div>
+    <div class="picture-container">
+        <img src="../pics/trre.jpeg" width="200px" class="pic">
+        <p class="description"> Tree White Pendant </p>
+      </div>
+    <div class="picture-container">
+        <img src="../pics/clockredpen.jpg" width="200px" class="pic">
+        <p class="description">Clock Red Ruby Pendant </p>
+    </div>
+      <div class="picture-container">
+        <img src="../pics/crysrainbow.jpg" width="200px" class="pic">
+        <p class="description"> Rainbow Crystal </p>
+      </div>
+    <div class="picture-container">
+        <img src="../pics/pinkcrys.jpeg" width="200px" class="pic">
+        <p class="description"> Pink Crystal </p>
+    </div>
+    <div class="picture-container">
+        <img src="../pics/earine2.jpg" width="200px" class="pic">
+        <p class="description"> Flower Earing </p>
+    </div>
+    <div class="picture-container">
+        <img src="../pics/goldear.jpg" width="200px" class="pic">
+        <p class="description"> Gold Earing </p>
+    </div>
+      
+    
+</body>
+</html>

@@ -6,9 +6,9 @@
 
 <html>
     <head>
-        <link rel="stylesheet" href="loginstyle.css"> 
-        <link rel="stylesheet" href="../BitarJewelry/styles/loginstyle.css"> 
-        <link rel="stylesheet" href="./BitarJewelry/styles/style.css"> 
+       
+        <link rel="stylesheet" href="./styles/loginstyle.css"> 
+        <link rel="stylesheet" href="./styles/style.css"> 
         <script>
             // alert("my first javascript!"); 
          </script>
@@ -20,20 +20,20 @@
                     
 
         <div class="title">
-            <span>Login</h1>
+            <span>LOGIN/CREATE AN ACCOUNT</h1>
         </div>        
         
     
         <div class="paragraph" style="border:0;">
-            <form action="../BE/login.php" method="POST" name="login-form">
+            <form class="form" action="../BE/login.php" method="POST" name="login-form">
                 <label for="username">Username</label>
                 <br>
                 <input type="text" name="username" id="uninput" class="txtfield">
-                <br>
+                <br><br>
                 <label for="password">Password</label>
                 <br>
                 <input type="password" name="password" id="pinput" class="txtfield">
-                <br>
+                <br><br>
                 <input type="submit" value="Login" class="mButton" onclick="Login()">
                 
             </form>
@@ -76,11 +76,12 @@
             
         </script>
 
-        <span id="login" style=" -webkit-text-stroke: 0;margin-left: 10; font-family: sans-serif;">
+        <span id="login" style=" -webkit-text-stroke: 0;margin-right: 10; font-family: sans-serif; position:relative; top:200; left:42%">
             Don't have an account? Sign up!
+            <br>
         </span>
         <br>
-        <input type="button" value="Sign up" style="margin-left: 10;" class="mButton" onclick="SignUp()">
+        <input type="button" value="Sign up" style="margin-right: 10; position:relative; top:200; left: 48%" class="mButton" onclick="SignUp()">
         <script>
             function SignUp() {
                 window.location.href = "./pages/signup.html"; 

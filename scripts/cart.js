@@ -22,3 +22,8 @@ function showCard(id) {
     var card = document.getElementById(id);
     card.classList.remove('hide');
 }
+
+function Move() {
+    window.location.href = "../pages/cart.html";
+  }
+  

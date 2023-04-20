@@ -1,17 +1,13 @@
 <?php
-    session_start();
-    session_unset();
-    session_destroy();
+session_start();
+session_unset();
+session_destroy();
 ?>
 
 <html>
-    <head>
-       
+    <head>  
         <link rel="stylesheet" href="./styles/loginstyle.css"> 
-        <link rel="stylesheet" href="./styles/style.css"> 
-        <script>
-            // alert("my first javascript!"); 
-         </script>
+        <link rel="stylesheet" href="./styles/style.css">
         <title>
             Login
         </title>
@@ -20,7 +16,7 @@
                     
 
         <div class="title">
-            <span>LOGIN/CREATE AN ACCOUNT</h1>
+            <span>LOG INTO YOUR ACCOUNT</h1>
         </div>        
         
     
@@ -56,22 +52,20 @@
             var un = getCookie("username");
             var ps = getCookie("password");
 
-            if(un && ps){
-                
+            if(un && ps) {
                 document.getElementById("uninput").value = un;
                 document.getElementById("pinput").value = ps;
-                
-                
                 document.querySelector("form[name='login-form']").submit();
             }
+
             var isFirstLoad = true;
             document.addEventListener("DOMContentLoaded", function() {
-              if (isFirstLoad) {
-                 document.getElementById("uninput").value = "";
-                 document.getElementById("pinput").value = "";
-                 isFirstLoad = false;
-                 }
-             });
+                if (isFirstLoad) {
+                    document.getElementById("uninput").value = "";
+                    document.getElementById("pinput").value = "";
+                    isFirstLoad = false;
+                }
+            });
             
             
         </script>

@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -60,7 +64,6 @@
         
         <!-- cart items (card) -->
         <main>
-            
             <div class="container-fluid">
                 <h1>My Cart</h1>
                 <div class="row">
@@ -68,7 +71,7 @@
                     <div class="col-sm-8 col-xs-12">
                         <div class="card" id="prod01">
                             <div class="row">
-                                <!-- image -->
+                                <!-- product.image -->
                                 <div class="col-sm-6 col-xs-12 img-col">
                                     <img src="../pics/flowerear.jpg" class="card-img-top" alt="..." />
                                 </div>
@@ -76,124 +79,60 @@
                                 <!-- info -->
                                 <div class="col-sm-6 col-xs-12">
                                     <div class="card-body">
-                                        <!-- title -->
+                                        <!-- product.name -->
                                         <h5 class="card-title">Product 1</h5>
 
-                                        <!-- price -->
+                                        <!-- product.price -->
                                         <p class="card-text">$5.00</p>
 
-                                        <!-- description -->
-                                        <p>Product Description Goes Here</p>
+                                        <!-- product.id -->
+                                        <p>
+                                            <span>Product ID: </span>
+                                            <span id="pid1">3</span>
+                                        </p>
 
-                                        <!-- quantity -->
+                                        <!-- product.description -->
+                                        <p id="pdesc1">Product Description Goes Here</p>
+
+                                        <!-- product.type -->
+                                        <p>
+                                            <span>Type:</span>
+                                            <span id="ptype1">Pendant</span>
+                                        </p>
+
                                         <p class="div">
                                             <span>
                                                 Amount:
                                             </span>
-                                            <span id="amnt01">
+                                            <!-- cart_items.quantity -->
+                                            <span id="pqnt1">
                                                 1
                                             </span>
                                         </p>
 
-                                        <!-- add -->
-                                        <button type="button" class="btn btn-outline-primary" onclick="Add('amnt01')">
+                                        <!-- add btn -->
+                                        <button type="button" class="btn btn-outline-primary" onclick="Add('pqnt1')">
                                             Add
                                         </button>
 
-                                        <!-- remove -->
-                                        <button type="button" class="btn btn-outline-danger" onclick="Remove('amnt01')">
+                                        <!-- remove btn -->
+                                        <button type="button" class="btn btn-outline-danger" onclick="Remove('pqnt1')">
                                             Remove
+                                        </button>
+
+                                        <!-- save button -->
+                                        <button type="button" class="btn btn-outline-primary" onclick="Update('pid1', 'pqnt1')">
+                                            Save
                                         </button>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="card" id="prod02">
-                            <div class="row">
-                                <!-- image -->
-                                <div class="col-sm-6 col-xs-12 img-col">
-                                    <img src="../pics/ringblue.jpg" class="card-img-top" alt="..." />
-                                </div>
-
-                                <!-- info -->
-                                <div class="col-sm-6 col-xs-12">
-                                    <div class="card-body">
-                                        <!-- title -->
-                                        <h5 class="card-title">Product 2</h5>
-
-                                        <!-- price -->
-                                        <p class="card-text">$5.00</p>
-
-                                        <!-- description -->
-                                        <p>Product Description Goes Here</p>
-
-                                        <!-- quantity -->
-                                        <p class="div">
-                                            <span>
-                                                Amount:
-                                            </span>
-                                            <span id="amnt02">
-                                                1
-                                            </span>
-                                        </p>
-
-                                        <!-- add -->
-                                        <button type="button" class="btn btn-outline-primary" onclick="Add('amnt02')">
-                                            Add
-                                        </button>
-
-                                        <!-- remove -->
-                                        <button type="button" class="btn btn-outline-danger" onclick="Remove('amnt02')">
-                                            Remove
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="card" id="prod03">
-                            <div class="row">
-                                <!-- image -->
-                                <div class="col-sm-6 col-xs-12 img-col">
-                                    <img src="../pics/pinkcrys.jpeg" class="card-img-top" alt="..." />
-                                </div>
-
-                                <!-- info -->
-                                <div class="col-sm-6 col-xs-12">
-                                    <div class="card-body">
-                                        <!-- title -->
-                                        <h5 class="card-title">Product 3</h5>
-
-                                        <!-- price -->
-                                        <p class="card-text">$5.00</p>
-
-                                        <!-- description -->
-                                        <p>Product Description Goes Here</p>
-
-                                        <!-- quantity -->
-                                        <p class="div">
-                                            <span>
-                                                Amount:
-                                            </span>
-                                            <span id="amnt03">
-                                                1
-                                            </span>
-                                        </p>
-
-                                        <!-- add -->
-                                        <button type="button" class="btn btn-outline-primary" onclick="Add('amnt03')">
-                                            Add
-                                        </button>
-
-                                        <!-- remove -->
-                                        <button type="button" class="btn btn-outline-danger" onclick="Remove('amnt03')">
-                                            Remove
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <form action="../backend/cartquantity.php" id="quantity-form" method="POST">
+                            <input type="hidden" name="f_product_id" id="f_product_id" value="">
+                            <input type="hidden" name="f_quantity" id="f_quantity" value="">
+                        </form>
                     </div>
 
                     <!-- summary col -->

@@ -31,7 +31,7 @@
             setcookie("uname", $un, time() + 3600);
         }
 
-		header("location:../pages/home.html");
+		header("location:../pages/home.php");
 	} 
 
 	

@@ -38,6 +38,11 @@
               </li>
             </ul>
           </div>
+
+          <?php
+            session_start();
+            echo $_SESSION["username"];
+          ?>
         </div>
 
         <!-- search bar -->

@@ -25,5 +25,21 @@ function showCard(id) {
 
 function Move() {
     window.location.href = "../pages/cart.html";
-  }
-  
+}
+
+// ajax this somehow
+function Update(idid, qntid) {
+    // get necessary information
+    var id = document.getElementById(idid).innerHTML;
+    var quantity = document.getElementById(qntid).innerHTML;
+
+    // set them in the form 
+    var f_prod_id = document.getElementById("f_product_id");
+    f_prod_id.value = parseInt(id);
+    var f_quantity = document.getElementById("f_quantity");
+    f_quantity.value = parseInt(quantity);
+
+    // submit the form
+    var form = document.getElementById("quantity-form");
+    form.submit();
+}

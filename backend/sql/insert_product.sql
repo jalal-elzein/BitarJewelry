@@ -1,0 +1,11 @@
+INSERT INTO product (name, description, type, price, image, stock) VALUES ('Body Chain', NULL,'Chains', 20, 'bodychain.jpg', 15);
+INSERT INTO product (name, description, type, price, image, stock) VALUES ('Wide Chain', 'Chain wider than average, can have multiple usage','Chains', 15, 'chainwide.jpg', 10);
+INSERT INTO product (name, description, type, price, image, stock) VALUES ('Red Pendant', 'Red Pendant clock shape ', 'Pendants', 18, 'clockredpen.jpg', 15);
+INSERT INTO product (name, description, type, price, image, stock) VALUES ('Rainbow Crystal', 'Reflective rainbow crystal as pendant', 'Pendants', 15, 'crysrainbow.jpg', 5);
+INSERT INTO product (name, description, type, price, image, stock) VALUES ('Butterfly Earrings', 'Long Butterfly shape earrings with two pearls at the end - part of spring collection','Earrings', 10, 'earine2.jpg', 5);
+INSERT INTO product (name, description, type, price, image, stock) VALUES ('Gold Earrings', 'Vintage gold earrings','Earrings', 120, 'goldear.jpg', 3);
+INSERT INTO product (name, description, type, price, image, stock) VALUES ('Pink Crystal', 'pink crystal pendant surrounded by circular metal rings', 'Pendants', 15, 'pinkcrys.jpeg', 10);
+INSERT INTO product (name, description, type, price, image, stock) VALUES ('Red Ring', 'Silver Red Ring','Rings', 15, 'ringred.jpg', 20);
+INSERT INTO product (name, description, type, price, image, stock) VALUES ('Silver Ring', 'Wide Silver Ring With Engravings','Rings', 10, 'ringsiler.jpg', 20);
+INSERT INTO product (name, description, type, price, image, stock) VALUES ('Pearls Necklace', 'Big Pearls Necklace','Pearl Necklaces', 40, 'webpearl.jpg', 20);
+INSERT INTO product (name, description, type, price, image, stock) VALUES ('Gold Chain', 'Long Gold Chain','Gold Necklace', 70, '18k-gold-chain-33483988_1036550_ED.jpg', 25);

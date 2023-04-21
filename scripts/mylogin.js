@@ -14,6 +14,8 @@ function getCookie(name) {
 function login() {
     var uname = document.getElementById("username").value;
     var upass = document.getElementById("password").value;
+    console.log(uname);
+    console.log(upass);
     if (uname != "" && upass != "") {
         document.getElementById("login").submit();
     } else {

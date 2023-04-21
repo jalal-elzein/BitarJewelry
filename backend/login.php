@@ -1,7 +1,7 @@
 <?php
 	// connecting to the database
 	$dbhost = "127.0.0.1";
-	$dbname = "bitarDB";
+	$dbname = "bitar_db";
 	$dbuser = "root";
 	$dbpass = "";
 	$db = null;
@@ -18,7 +18,7 @@
     $remember = $_POST["remembercheck"];
 	
 	// query the database for a username with the provided credentials
-	$query = "SELECT id FROM users WHERE username = '".$username."' AND password=PASSWORD('".$password."')";
+	$query = "SELECT id FROM customer WHERE username = '".$username."' AND password = '".$password."';";
 	$result = $db->query($query);
 	
 	// if # records == 1: login and start session etc
@@ -31,7 +31,7 @@
             setcookie("uname", $un, time() + 3600);
         }
 
-		header("location:./pages/home.php");
+		header("location:../pages/home.html");
 	} 
 
 	

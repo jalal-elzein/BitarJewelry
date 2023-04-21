@@ -21,7 +21,7 @@ session_destroy();
         
     
         <div class="paragraph" style="border:0;">
-            <form class="form" action="../BE/login.php" method="POST" name="login-form">
+            <form class="form" action="./backend/login.php" method="POST" name="login-form">
                 <label for="username">Username</label>
                 <br>
                 <input type="text" name="username" id="uninput" class="txtfield">

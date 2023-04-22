@@ -1,5 +1,5 @@
 <?php
-    session_start();
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -69,65 +69,107 @@
                 <div class="row">
                     <!-- card col -->
                     <div class="col-sm-8 col-xs-12">
-                        <div class="card" id="prod01">
-                            <div class="row">
+                        <!-- render products from db here -->
+                        <?php
+
+                        // connecting to the database
+                        $dbhost = "127.0.0.1";
+                        $dbname = "bitar_db";
+                        $dbuser = "root";
+                        $dbpass = "";
+                        $db = null;
+                        try {
+                            $db = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbuser, $dbpass);
+                        } catch (PDOException $e) {
+                            print("Error: " . $e->getMessage() . "<br/>");
+                            die();
+                        }
+
+                        $un = $_SESSION["username"];
+
+                        // get products
+                        $stmnt = "SELECT product.* FROM customer JOIN cart ON customer.id = cart.customer_id JOIN cart_items ON cart.id = cart_items.cart_id JOIN product ON cart_items.product_id = product.id WHERE customer.username = '".$un."';";
+                        $result = $db->query($stmnt);
+                        $new = $result->fetchAll();
+
+                        // echo print_r($new);
+
+                        foreach ($new as $prod) {
+                            $prodid = $prod["id"];
+                            $prodname = $prod["name"];
+                            $proddesc = $prod["description"];
+                            $prodtype = $prod["type"];
+                            $prodprice = $prod["price"];
+                            $prodimage = $prod["image"];
+                            $prodstock = $prod["stock"];
+
+                            // echo $prodid;
+
+                            // get the quantity of each product from the user's cart 
+                            $amntq = "SELECT quantity FROM cart_items WHERE (product_id = ".$prodid.") AND (cart_id = (SELECT cart_id FROM customer WHERE username = '".$un."'));";
+                            $cartamntx = $db->query($amntq);
+                            $cartamnt = $cartamntx->fetch();
+
+                            // display the products
+                            echo "<div class='card' id='prod".$prodid."'>
+                            <div class='row'>
                                 <!-- product.image -->
-                                <div class="col-sm-6 col-xs-12 img-col">
-                                    <img src="../pics/flowerear.jpg" class="card-img-top" alt="..." />
+                                <div class='col-sm-6 col-xs-12 img-col'>
+                                    <img src='../pics/".$prodimage."' class='card-img-top' alt='".$prodname."' />
                                 </div>
 
                                 <!-- info -->
-                                <div class="col-sm-6 col-xs-12">
-                                    <div class="card-body">
+                                <div class='col-sm-6 col-xs-12'>
+                                    <div class='card-body'>
                                         <!-- product.name -->
-                                        <h5 class="card-title">Product 1</h5>
+                                        <h5 class='card-title'>".$prodname."</h5>
 
                                         <!-- product.price -->
-                                        <p class="card-text">$5.00</p>
+                                        <p class='card-text'>$".$prodprice."</p>
 
                                         <!-- product.id -->
                                         <p>
                                             <span>Product ID: </span>
-                                            <span id="pid1">3</span>
+                                            <span id='pid".$prodid."'>".$prodid."</span>
                                         </p>
 
                                         <!-- product.description -->
-                                        <p id="pdesc1">Product Description Goes Here</p>
+                                        <p id='pdesc".$prodid."'>".$proddesc."</p>
 
                                         <!-- product.type -->
                                         <p>
                                             <span>Type:</span>
-                                            <span id="ptype1">Pendant</span>
+                                            <span id='ptype".$prodid."'>".$prodtype."</span>
                                         </p>
 
-                                        <p class="div">
+                                        <p class='div'>
                                             <span>
                                                 Amount:
                                             </span>
                                             <!-- cart_items.quantity -->
-                                            <span id="pqnt1">
-                                                1
-                                            </span>
+                                            <span id='pqnt".$prodid."'>".$cartamnt["quantity"]."</span>
                                         </p>
 
                                         <!-- add btn -->
-                                        <button type="button" class="btn btn-outline-primary" onclick="Add('pqnt1')">
+                                        <button type='button' class='btn btn-outline-primary' onclick='Add(\"pqnt".$prodid."\")'>
                                             Add
                                         </button>
 
                                         <!-- remove btn -->
-                                        <button type="button" class="btn btn-outline-danger" onclick="Remove('pqnt1')">
+                                        <button type='button' class='btn btn-outline-danger' onclick='Remove(\"pqnt".$prodid."\")'>
                                             Remove
                                         </button>
 
                                         <!-- save button -->
-                                        <button type="button" class="btn btn-outline-primary" onclick="Update('pid1', 'pqnt1')">
+                                        <button type='button' class='btn btn-outline-primary' onclick='Update(\"pid".$prodid."\", \"pqnt".$prodid."\")'>
                                             Save
                                         </button>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div>";
+                        }
+                        ?>
 
                         <form action="../backend/cartquantity.php" id="quantity-form" method="POST">
                             <input type="hidden" name="f_product_id" id="f_product_id" value="">

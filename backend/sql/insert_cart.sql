@@ -1,3 +1,12 @@
-INSERT INTO `cart_items` (`cart_id`, `product_id`) VALUES (1, 1)
-INSERT INTO `cart_items` (`cart_id`, `product_id`) VALUES (1, 3)
-INSERT INTO `cart_items` (`cart_id`, `product_id`) VALUES (1, 7)
+INSERT INTO `cart`(`customer_id`, `price`) VALUES (3, 0);
+INSERT INTO `cart`(`customer_id`, `price`) VALUES (4, 0);
+INSERT INTO `cart`(`customer_id`, `price`) VALUES (5, 0);
+INSERT INTO `cart`(`customer_id`, `price`) VALUES (6, 0);
+INSERT INTO `cart`(`customer_id`, `price`) VALUES (7, 0);
+INSERT INTO `cart`(`customer_id`, `price`) VALUES (8, 0);
+INSERT INTO `cart`(`customer_id`, `price`) VALUES (9, 0);
+INSERT INTO `cart`(`customer_id`, `price`) VALUES (10, 0);
+INSERT INTO `cart`(`customer_id`, `price`) VALUES (11, 0);
+INSERT INTO `cart`(`customer_id`, `price`) VALUES (12, 0);
+INSERT INTO `cart`(`customer_id`, `price`) VALUES (13, 0);
+INSERT INTO `cart`(`customer_id`, `price`) VALUES (14, 0);

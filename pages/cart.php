@@ -39,10 +39,10 @@ session_start();
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                                <a class="nav-link active" aria-current="page" href="../index.php">Log In</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Products</a>
+                                <a class="nav-link" href="home.php">Products</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">Pricing</a>
@@ -126,18 +126,19 @@ session_start();
 
                                         <!-- product.price -->
                                         <p class='card-text'>$".$prodprice."</p>
-
+                                        
+                                        <!-- product.description -->
+                                        <p id='pdesc".$prodid."'>".$proddesc."</p>
+                                        
                                         <!-- product.id -->
-                                        <p>
+                                        <p style='margin-bottom: 0px;'>
                                             <span>Product ID: </span>
                                             <span id='pid".$prodid."'>".$prodid."</span>
                                         </p>
 
-                                        <!-- product.description -->
-                                        <p id='pdesc".$prodid."'>".$proddesc."</p>
 
                                         <!-- product.type -->
-                                        <p>
+                                        <p style='margin-bottom: 0px;'>
                                             <span>Type:</span>
                                             <span id='ptype".$prodid."'>".$prodtype."</span>
                                         </p>

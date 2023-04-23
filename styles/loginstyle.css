@@ -10,7 +10,7 @@ body{
 .paragraph{
     margin: 5px;
     font-size: 14px;
-    font-family: monospace;
+    font-family: sans-serif;
     color: black;
     padding-bottom: 10px;
     padding-top: 10px;
@@ -100,7 +100,7 @@ body{
     margin-top: 40px;
     font-size: 35px;
     -webkit-text-stroke: 0; 
-    font-family: monospace;
+    font-family: sans-serif;
   }
 
   .img-container{

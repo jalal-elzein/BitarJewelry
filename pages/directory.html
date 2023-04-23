@@ -71,8 +71,10 @@
         </div>
         
         <!-- sort -->
+      <form method="post" action="../backend/finaldirec.php">
         <div class="col">
-          <select class="form-select" aria-label="multiple select example">
+          <label for="filter-by">Sort By:</label>
+          <select class="form-select" aria-label="multiple select example"  id="sort-by" name="sort-by">
             <option selected>Sort By</option>
             <option value="name-asc">Name (A-Z)</option>
             <option value="name-desc">Name (Z-A)</option>
@@ -81,21 +83,27 @@
             <option value="availability">Availability</option>
           </select>
         </div>
+        <button type="submit">Submit</button>
+      </form>
 
         <!-- filter -->
-        <div class="col">
-          <select class="form-select" aria-label="multiple select example">
-            <option value="defualt" id="default">Filter By</option>
-            <option value="color">Color</option>
-            <option value="earrings">Earrings</option>
-            <option value="pearls">Pearls Necklace</option>
-            <option value="gold">Gold Necklace</option>
-            <option value="silver">Silver Necklace</option>
-            <option value="pendant">Pendants</option>
-            <option value="chain">Chains</option>
-            <option value="ring">Rings</option>
-          </select>
-        </div>
+        <form method="POST" action="../backend/filter.php">
+          <div class="col">
+            <label for="filter-by">Filter By:</label>
+            <select class="form-select" id="filter-by" name="filter-by">
+              <option value="default">-- Select an option --</option>
+              <option value="color">Color</option>
+              <option value="Earrings">Earrings</option>
+              <option value="Pearl Necklaces">Pearls Necklace</option>
+              <option value="Gold Necklace">Gold Necklace</option>
+              <option value="Silver Necklace">Silver Necklace</option>
+              <option value="Pendants">Pendants</option>
+              <option value="Chains">Chains</option>
+              <option value="Rings">Rings</option>
+            </select>
+          </div>
+          <button type="submit">Submit</button>
+        </form>        
       </div>
     </div>
 

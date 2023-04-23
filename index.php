@@ -16,7 +16,7 @@ session_destroy();
                     
 
         <div class="title">
-            <span>LOG INTO YOUR ACCOUNT</h1>
+            <span>Log Into Your Account</h1>
         </div>        
         
     

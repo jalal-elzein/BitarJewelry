@@ -1,14 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../styles/jalaloveramal.css">
+<title>Home</title>
     <!-- bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
       integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+
+    <!-- css -->
+    <link rel="stylesheet" href="../styles/mystyle.css">
+    <link rel="stylesheet" href="../styles/jalaloveramal.css">
+
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      integrity="sha512-tZ8a+ZHYTtXd+10QmJsfaGyX9tWpyk3p3D3qBJdZb8jJN4YnLYOnI4oFElv/8CQWn1kwPOeSgzSXCZlL0lWJYg=="
+      crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
     <!-- navigation bar -->
@@ -40,8 +45,9 @@
           </div>
 
           <?php
-            session_start();
-            echo $_SESSION["username"];
+          session_start();
+          echo "Welcome back, ";
+          echo $_SESSION["username"];
           ?>
         </div>
 
@@ -99,106 +105,48 @@
 
     <!-- grid -->
     <!-- replace by php to render from db -->
-    <div class="container text-center">
+    <div class="container text-center" style="margin-top: 15px;">
       <div class="row">
-        <div class="col-sm-3 col-xs-12">
-          <div class="card">
-            <img src="../pics/bodychain.jpg" class="card-img-top">
-            <div class="card-body">
-              <p class="card-text">Body Chain</p>
-            </div>
-          </div>
-        </div>
 
-        <div class="col-sm-3 col-xs-12">
-          <div class="card">
-            <img src="../pics/chainwide.jpg" class="card-img-top" alt="wide chain">
-            <div class="card-body">
-              <p class="card-text">Wide Chain</p>
-            </div>
-          </div>
-        </div>
+        <?php
 
-        <div class="col-sm-3 col-xs-12">
-          <div class="card">
-            <img src="../pics/clockredpen.jpg" class="card-img-top" alt="Red Pendant">
-            <div class="card-body">
-              <p class="card-text">Red Pendant</p>
-            </div>
-          </div>
-        </div>
+        // connecting to the database
+        $dbhost = "127.0.0.1";
+        $dbname = "bitar_db";
+        $dbuser = "root";
+        $dbpass = "";
+        $db = null;
+        try {
+          $db = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbuser, $dbpass);
+        } catch (PDOException $e) {
+          print("Error: " . $e->getMessage() . "<br/>");
+          die();
+        }
 
-        <div class="col-sm-3 col-xs-12">
-          <div class="card">
-            <img src="../pics/crysrainbow.jpg" class="card-img-top" alt="Rainbow Crystal">
-            <div class="card-body">
-              <p class="card-text">Rainbow Crystal</p>
-            </div>
-          </div>
-        </div>
+        $username = $_SESSION["username"];
+        $qry = "SELECT * FROM product;";
+        $res = $db->query($qry);
 
-        <div class="col-sm-3 col-xs-12">
+        foreach ($res as $prod) {
+          // print_r($prod);
+        
+          echo '<div class="col-sm-3 col-xs-12">
           <div class="card">
-            <img src="../pics/earine2.jpg" class="card-img-top" alt="Butterfly Earrings">
+            <img src="../pics/' . $prod["image"] . '" class="card-img-top">
             <div class="card-body">
-              <p class="card-text">Butterfly Earrings</p>
+              <!-- title -->
+              <p class="card-text">' . $prod["name"] . '</p>
+              <!-- price -->
+              <p class="card-text">
+                <span>$</span>
+                <span>' . $prod["price"] . '</span>
+              </p>
+              <button class="btn btn-outline-primary">Add to Cart</button>
             </div>
           </div>
-        </div>
-
-        <div class="col-sm-3 col-xs-12">
-          <div class="card">
-            <img src="../pics/goldear.jpg" class="card-img-top" alt="Gold Earrings">
-            <div class="card-body">
-              <p class="card-text">Gold Earrings</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-sm-3 col-xs-12">
-          <div class="card">
-            <img src="../pics/pinkcrys.jpeg" class="card-img-top" alt="Pink Crystals">
-            <div class="card-body">
-              <p class="card-text">Pink Crystals</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-sm-3 col-xs-12">
-          <div class="card">
-            <img src="../pics/ringred.jpg" class="card-img-top" alt="Red Ring">
-            <div class="card-body">
-              <p class="card-text">Red Ring</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-sm-3 col-xs-12">
-          <div class="card">
-            <img src="../pics/ringsiler.jpg" class="card-img-top" alt="Silver Ring">
-            <div class="card-body">
-              <p class="card-text">Silver Ring</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-sm-3 col-xs-12">
-          <div class="card">
-            <img src="../pics/webpearl.jpg" class="card-img-top" alt="Pearls">
-            <div class="card-body">
-              <p class="card-text">Pearls</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-sm-3 col-xs-12">
-          <div class="card">
-            <img src="../pics/18k-gold-chain-33483988_1036550_ED.jpg" class="card-img-top" alt="Gold Chain">
-            <div class="card-body">
-              <p class="card-text">Gold Chain</p>
-            </div>
-          </div>
-        </div>
+        </div>';
+        }
+        ?>
       </div>
     </div>
 

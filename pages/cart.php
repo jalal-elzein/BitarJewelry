@@ -92,8 +92,6 @@ session_start();
                         $result = $db->query($stmnt);
                         $new = $result->fetchAll();
 
-                        // echo print_r($new);
-
                         foreach ($new as $prod) {
                             $prodid = $prod["id"];
                             $prodname = $prod["name"];
@@ -102,8 +100,6 @@ session_start();
                             $prodprice = $prod["price"];
                             $prodimage = $prod["image"];
                             $prodstock = $prod["stock"];
-
-                            // echo $prodid;
 
                             // get the quantity of each product from the user's cart 
                             $amntq = "SELECT quantity FROM cart_items WHERE (product_id = ".$prodid.") AND (cart_id = (SELECT cart_id FROM customer WHERE username = '".$un."'));";

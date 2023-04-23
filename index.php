@@ -16,7 +16,7 @@ session_destroy();
                     
 
         <div class="title">
-            <span>LOG INTO YOUR ACCOUNT</h1>
+            <span>Log Into Your Account</h1>
         </div>        
         
     
@@ -75,7 +75,7 @@ session_destroy();
             <br>
         </span>
         <br>
-        <input type="button" value="Sign up" style="margin-right: 10; position:relative; top:200; left: 48%" class="mButton" onclick="SignUp()">
+        <input type="button" value="Sign up" style="position:relative; top:200; left: 47%" class="mButton" onclick="SignUp()">
         <script>
             function SignUp() {
                 window.location.href = "./pages/signup.html"; 

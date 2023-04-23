@@ -1,5 +1,8 @@
 <?php
 session_start();
+if (!isset($__SESSION["username"])) {
+    header("location:../index.php");
+}
 ?>
 
 <!DOCTYPE html>

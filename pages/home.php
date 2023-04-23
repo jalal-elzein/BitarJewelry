@@ -1,3 +1,9 @@
+<?php
+session_start();
+if (!isset($__SESSION["username"])) {
+    header("location:../index.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -45,7 +51,6 @@
           </div>
 
           <?php
-          session_start();
           echo "Welcome back, ";
           echo $_SESSION["username"];
           ?>

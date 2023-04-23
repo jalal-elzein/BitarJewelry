@@ -21,7 +21,7 @@ session_destroy();
         
     
         <div class="paragraph" style="border:0;">
-            <form class="form" action="./backend/login.php" method="POST" name="login-form">
+            <form class="form" action="backend/login.php" method="POST" name="login-form">
                 <label for="username">Username</label>
                 <br>
                 <input type="text" name="username" id="uninput" class="txtfield">
@@ -31,13 +31,10 @@ session_destroy();
                 <input type="password" name="password" id="pinput" class="txtfield">
                 <br><br>
                 <input type="submit" value="Login" class="mButton" onclick="Login()">
-                
             </form>
         </div>
 
         <script>
-            
-            
             function getCookie(name) {
                 var cookies = document.cookie.split(";");
                 for (let i = 0; i < cookies.length; i++) {
@@ -76,10 +73,11 @@ session_destroy();
         </span>
         <br>
         <input type="button" value="Sign up" style="position:relative; top:200; left: 47%" class="mButton" onclick="SignUp()">
+
         <script>
             function SignUp() {
                 window.location.href = "./pages/signup.html"; 
-                }
+            }
         </script>
 </body>
 </html>

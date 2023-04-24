@@ -26,7 +26,7 @@ text: #595858
 
 
         <div class="paragraph" style="border:0;">
-            <form action="../BE/signup.php" method="POST" name="signup-form">
+            <form action="../backend/signup.php" method="POST" name="signup-form">
                 <label for="un">First Name</label>
                 <br>
                 <input type="text" name="firstname" class="txtfield">
@@ -68,18 +68,12 @@ text: #595858
                 var email = mForm.elements["email"].value;
                 var pass = mForm.elements["pass"].value;
                 var confPass = mForm.elements["confirmPassword"].value;
-                var sex = mForm.elements["sex"].value;
-                var ageGroup = mForm.elements["ageGroup"].value;
-                var language = mForm.elements["language"].value;
                 var captcha = mForm.elements["cbcaptcha"].checked;
                 console.log("fn:" + fn);
                 console.log("ln:" + ln);
                 console.log("email:" + email);
                 console.log("pass:" + pass);
                 console.log("confPass:" + confPass);
-                console.log("sex:" + sex);
-                console.log("ageGroup:" + ageGroup);
-                console.log("language:" + language);
                 console.log("captcha:" + captcha);
 
                 if ((pass != confPass) || (pass == ""))
@@ -94,9 +88,7 @@ text: #595858
                 mForm.elements["email"].value = "";
                 mForm.elements["pass"].value = "";
                 mForm.elements["confirmPassword"].value = "";
-                mForm.elements["sex"].value = "m";
-                mForm.elements["ageGroup"].value = "above";
-                mForm.elements["language"].value = -1;
+                mForm.elements["username"].value = "";
                 mForm.elements["cbcaptcha"].checked = false;
             }
         </script>

@@ -15,8 +15,7 @@
 	// receive values from form submission
 	$username = $_POST["username"];
 	$password = $_POST["password"];
-    $remember = $_POST["remembercheck"];
-	
+
 	// query the database for a username with the provided credentials
 	$query = "SELECT id FROM customer WHERE username = '".$username."' AND password = '".$password."';";
 	$result = $db->query($query);
@@ -26,17 +25,10 @@
 	if ($resrows == 1) {
 		session_start();
 		$_SESSION["username"] = $username;
-        
-        if ($remember) {
-            setcookie("uname", $un, time() + 3600);
-        }
-
 		header("location:../pages/home.php");
-	} 
-
-	
+	}
 	// else send error
 	else {
-		header("location:./index.php");
+		header("location:../index.php");
 	}
 ?>

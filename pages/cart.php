@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (!isset($__SESSION["username"])) {
+if (!isset($_SESSION["username"])) {
     header("location:../index.php");
 }
 ?>
@@ -64,7 +64,6 @@ if (!isset($__SESSION["username"])) {
             </div>
         </nav>
 
-        
         <!-- cart items (card) -->
         <main>
             <div class="container-fluid">

@@ -11,7 +11,6 @@
 		print("Error: ".$e->getMessage()."<br/>");
 		die();
 	}
-
     
     // get username from session
     session_start();
@@ -22,7 +21,10 @@
     $product_id = $_POST["f_product_id"];
 
     // create the query 
-    $query = "UPDATE cart_items SET quantity = ".$amount." WHERE cart_id = (SELECT id FROM cart WHERE customer_id = (SELECT id FROM customer WHERE username = '".$username."')) AND product_id = ".$product_id.";";
+    $query = "UPDATE cart_items SET quantity = ".$amount." 
+        WHERE cart_id = (SELECT id FROM cart 
+        WHERE customer_id = (SELECT id FROM customer WHERE username = '".$username."')) 
+        AND product_id = ".$product_id.";";
 
     // submit query 
     $db->exec($query);

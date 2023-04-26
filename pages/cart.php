@@ -21,6 +21,9 @@ if (!isset($_SESSION["username"])) {
 
         <!-- linking my css -->
         <link rel="stylesheet" href="../styles/style.css" />
+
+        <!-- jQuery -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     </head>
 
     <body>
@@ -68,6 +71,32 @@ if (!isset($_SESSION["username"])) {
         <main>
             <div class="container-fluid">
                 <h1>My Cart</h1>
+
+                <?php
+                    // define success message
+                    $success = '<!-- change confirmation -->
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    Changes Have Been Saved Successfully!
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>';
+                    
+                    // define failure message
+                    $failure = '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                Changes were not saved! Please try again or contact customer support if the problem persists.
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>';
+                    
+                    // display a message based on status
+                    if (isset($_SESSION["change_success"])) {
+                        if ($_SESSION["change_success"] == 1) {
+                            echo $success;
+                        } else {
+                            echo $failure;
+                        }
+                        unset($_SESSION["change_success"]);
+                    }
+                ?>
+
                 <div class="row">
                     <!-- card col -->
                     <div class="col-sm-8 col-xs-12">
@@ -90,7 +119,7 @@ if (!isset($_SESSION["username"])) {
                         $un = $_SESSION["username"];
 
                         // get products
-                        $stmnt = "SELECT product.* FROM customer JOIN cart ON customer.id = cart.customer_id JOIN cart_items ON cart.id = cart_items.cart_id JOIN product ON cart_items.product_id = product.id WHERE customer.username = '".$un."';";
+                        $stmnt = "SELECT product.* FROM customer JOIN cart ON customer.id = cart.customer_id JOIN cart_items ON cart.id = cart_items.cart_id JOIN product ON cart_items.product_id = product.id WHERE customer.username = '" . $un . "';";
                         $result = $db->query($stmnt);
                         $new = $result->fetchAll();
 
@@ -104,41 +133,41 @@ if (!isset($_SESSION["username"])) {
                             $prodstock = $prod["stock"];
 
                             // get the quantity of each product from the user's cart 
-                            $amntq = "SELECT quantity FROM cart_items WHERE (product_id = ".$prodid.") AND (cart_id = (SELECT cart_id FROM customer WHERE username = '".$un."'));";
+                            $amntq = "SELECT quantity FROM cart_items WHERE (product_id = " . $prodid . ") AND (cart_id = (SELECT cart_id FROM customer WHERE username = '" . $un . "'));";
                             $cartamntx = $db->query($amntq);
                             $cartamnt = $cartamntx->fetch();
 
                             // display the products
-                            echo "<div class='card' id='prod".$prodid."'>
+                            echo "<div class='card' id='prod" . $prodid . "'>
                             <div class='row'>
                                 <!-- product.image -->
                                 <div class='col-sm-6 col-xs-12 img-col'>
-                                    <img src='../pics/".$prodimage."' class='card-img-top' alt='".$prodname."' />
+                                    <img src='../pics/" . $prodimage . "' class='card-img-top' alt='" . $prodname . "' />
                                 </div>
 
                                 <!-- info -->
                                 <div class='col-sm-6 col-xs-12'>
                                     <div class='card-body'>
                                         <!-- product.name -->
-                                        <h5 class='card-title'>".$prodname."</h5>
+                                        <h5 class='card-title'>" . $prodname . "</h5>
 
                                         <!-- product.price -->
-                                        <p class='card-text'>$".$prodprice."</p>
+                                        <p class='card-text'>$" . $prodprice . "</p>
                                         
                                         <!-- product.description -->
-                                        <p id='pdesc".$prodid."'>".$proddesc."</p>
+                                        <p id='pdesc" . $prodid . "'>" . $proddesc . "</p>
                                         
                                         <!-- product.id -->
                                         <p style='margin-bottom: 0px;'>
                                             <span>Product ID: </span>
-                                            <span id='pid".$prodid."'>".$prodid."</span>
+                                            <span id='pid" . $prodid . "'>" . $prodid . "</span>
                                         </p>
 
 
                                         <!-- product.type -->
                                         <p style='margin-bottom: 0px;'>
                                             <span>Type:</span>
-                                            <span id='ptype".$prodid."'>".$prodtype."</span>
+                                            <span id='ptype" . $prodid . "'>" . $prodtype . "</span>
                                         </p>
 
                                         <p class='div'>
@@ -146,21 +175,21 @@ if (!isset($_SESSION["username"])) {
                                                 Amount:
                                             </span>
                                             <!-- cart_items.quantity -->
-                                            <span id='pqnt".$prodid."'>".$cartamnt["quantity"]."</span>
+                                            <span id='pqnt" . $prodid . "'>" . $cartamnt["quantity"] . "</span>
                                         </p>
 
                                         <!-- add btn -->
-                                        <button type='button' class='btn btn-outline-primary' onclick='Add(\"pqnt".$prodid."\")'>
+                                        <button type='button' class='btn btn-outline-primary' onclick='Add(\"pqnt" . $prodid . "\")'>
                                             Add
                                         </button>
 
                                         <!-- remove btn -->
-                                        <button type='button' class='btn btn-outline-danger' onclick='Remove(\"pqnt".$prodid."\")'>
+                                        <button type='button' class='btn btn-outline-danger' onclick='Remove(\"pqnt" . $prodid . "\")'>
                                             Remove
                                         </button>
 
                                         <!-- save button -->
-                                        <button type='button' class='btn btn-outline-primary' onclick='Update(\"pid".$prodid."\", \"pqnt".$prodid."\")'>
+                                        <button type='button' class='btn btn-outline-primary' onclick='Update(\"pid" . $prodid . "\", \"pqnt" . $prodid . "\")'>
                                             Save
                                         </button>
                                     </div>

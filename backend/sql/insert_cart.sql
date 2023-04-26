@@ -1,3 +1,5 @@
+INSERT INTO `cart`(`customer_id`, `price`) VALUES (1, 0);
+INSERT INTO `cart`(`customer_id`, `price`) VALUES (2, 0);
 INSERT INTO `cart`(`customer_id`, `price`) VALUES (3, 0);
 INSERT INTO `cart`(`customer_id`, `price`) VALUES (4, 0);
 INSERT INTO `cart`(`customer_id`, `price`) VALUES (5, 0);

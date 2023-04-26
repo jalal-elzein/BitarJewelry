@@ -26,8 +26,12 @@
         WHERE customer_id = (SELECT id FROM customer WHERE username = '".$username."')) 
         AND product_id = ".$product_id.";";
 
-    // submit query 
-    $db->exec($query);
+    try {
+        $db->exec($query);
+        $_SESSION["change_success"] = 1;
+    } catch (Exception $e) {
+        $_SESSION["change_success"] = 0;
+    }
 
     header("location:../pages/cart.php");
 ?>

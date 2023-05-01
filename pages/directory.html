@@ -69,22 +69,22 @@
             <button type="button" class="btn btn-outline-dark" onclick="search()">Search</button>
           </form>
         </div>
-        
+
         <!-- sort -->
-      <form method="post" action="../backend/direcotry.php">
-        <div class="col">
-          <label for="filter-by">Sort By:</label>
-          <select class="form-select" aria-label="multiple select example"  id="sort-by" name="sort-by">
-            <option selected>Sort By</option>
-            <option value="name-asc">Name (A-Z)</option>
-            <option value="name-desc">Name (Z-A)</option>
-            <option value="length-asc">Size (cm) (Low to High)</option>
-            <option value="length-desc">Size (cm) (High to Low)</option>
-            <option value="availability">Availability</option>
-          </select>
-        </div>
-        <button type="submit">Submit</button>
-      </form>
+        <form method="post" action="../backend/direcotry.php">
+          <div class="col">
+            <label for="filter-by">Sort By:</label>
+            <select class="form-select" aria-label="multiple select example" id="sort-by" name="sort-by">
+              <option selected>Sort By</option>
+              <option value="name-asc">Name (A-Z)</option>
+              <option value="name-desc">Name (Z-A)</option>
+              <option value="length-asc">Size (cm) (Low to High)</option>
+              <option value="length-desc">Size (cm) (High to Low)</option>
+              <option value="availability">Availability</option>
+            </select>
+          </div>
+          <button type="submit">Submit</button>
+        </form>
 
         <!-- filter -->
         <form method="POST" action="../backend/filter.php">
@@ -103,7 +103,7 @@
             </select>
           </div>
           <button type="submit">Submit</button>
-        </form>        
+        </form>
       </div>
     </div>
 

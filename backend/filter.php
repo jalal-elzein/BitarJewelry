@@ -21,7 +21,7 @@
 <?php
     // connecting to the database
 	$dbhost = "127.0.0.1";
-	$dbname = "se";
+	$dbname = "bitar_db";
 	$dbuser = "root";
 	$dbpass = "";
 	$db = null;

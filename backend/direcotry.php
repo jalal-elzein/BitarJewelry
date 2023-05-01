@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $stmt->bindParam(':stock', $stock);
     $stmt->bindParam(':product_id', $product_id);
     $stmt->execute();
-	$stmt->execute();
+	//$stmt->execute();
 if ($stmt->errorCode() !== "00000") {
     $errorInfo = $stmt->errorInfo();
     print("Error: " . $errorInfo[2] . "<br>");

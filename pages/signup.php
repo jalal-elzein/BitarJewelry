@@ -10,9 +10,10 @@ text: #595858
             integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
         <link rel="stylesheet" href="../styles/loginstyle.css">
         <link rel="stylesheet" href="../styles/style.css">
-        <script>
-            // alert("my first javascript!"); 
-        </script>
+        <!-- linking bootstrap -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+            crossorigin="anonymous"/>
         <title>
             Sign Up
         </title>
@@ -24,6 +25,31 @@ text: #595858
             <span>Sign Up Now!</h1>
         </div>
 
+        <?php
+            session_start();
+
+            // define failure message
+            $failure = '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                    Account Was Not Created! Please try again or contact customer support if the problem persists.
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                </div>';
+
+            $already = '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                    User Already Exists. Please try a different username.
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                </div>';
+
+            if (isset($_SESSION["signup_status"])) {
+                if ($_SESSION["signup_status"] == 0) {
+                    echo $already;
+                }
+                if ($_SESSION["signup_status"] == 2) {
+                    echo $failure;
+                }
+                unset($_SESSION["signup_status"]);
+            }
+
+        ?>
 
         <div class="paragraph" style="border:0;">
             <form action="../backend/signup.php" method="POST" name="signup-form">

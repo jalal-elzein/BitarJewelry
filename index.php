@@ -22,18 +22,32 @@ session_start();
     
         <div class="container justify-content-center" style="margin-bottom: 10px;">
             <?php
-            // define failure message
-            $failure = '<div class="alert alert-danger alert-dismissible fade show" role="alert">
-            Login Failed. Username or Password is incorrect. Try Again.
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>';
-
-            if (isset($_SESSION["login_status"])) {
-                if ($_SESSION["login_status"] == 0) {
-                    echo $failure;
+                // define failure message
+                $failure = '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+                Login Failed. Username or Password is incorrect. Try Again.
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>';
+                
+                if (isset($_SESSION["login_status"])) {
+                    if ($_SESSION["login_status"] == 0) {
+                        echo $failure;
+                    }
+                    unset($_SESSION["login_status"]);
                 }
-                unset($_SESSION["login_status"]);
-            }
+            ?>
+
+            <?php
+                $success = '<!-- change confirmation -->
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        Account Was Created Successfully. Please Use It To Log In.
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>';
+                if (isset($_SESSION["signup_status"])) {
+                    if ($_SESSION["signup_status"] == 1) {
+                        echo $success;
+                    }
+                    unset($_SESSION["signup_status"]);
+                }
             ?>
         </div>
 
@@ -80,8 +94,6 @@ session_start();
                     isFirstLoad = false;
                 }
             });
-            
-            
         </script>
 
         <span id="login" style=" -webkit-text-stroke: 0;margin-right: 10; font-family: sans-serif; position:relative; top:200; left:42%">
@@ -93,7 +105,7 @@ session_start();
 
         <script>
             function SignUp() {
-                window.location.href = "./pages/signup.html"; 
+                window.location.href = "./pages/signup.php"; 
             }
         </script>
 </body>

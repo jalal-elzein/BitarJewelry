@@ -49,11 +49,13 @@ if (!isset($_SESSION["username"])) {
               </li>
             </ul>
           </div>
+          <span style="color: white;">
+            <?php
+              echo "Welcome back, ";
+              echo $_SESSION["username"];
+            ?>
+          </span>
 
-          <?php
-          echo "Welcome back, ";
-          echo $_SESSION["username"];
-          ?>
         </div>
 
         <!-- search bar -->

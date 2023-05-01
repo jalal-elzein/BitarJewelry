@@ -1,7 +1,5 @@
 <?php
 session_start();
-session_unset();
-session_destroy();
 ?>
 
 <html>
@@ -11,15 +9,34 @@ session_destroy();
         <title>
             Login
         </title>
+        <!-- linking bootstrap -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+            crossorigin="anonymous"/>
+
     </head>
     <body>
-                    
-
         <div class="title">
             <span>Log Into Your Account</h1>
         </div>        
-        
     
+        <div class="container justify-content-center" style="margin-bottom: 10px;">
+            <?php
+            // define failure message
+            $failure = '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+            Login Failed. Username or Password is incorrect. Try Again.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>';
+
+            if (isset($_SESSION["login_status"])) {
+                if ($_SESSION["login_status"] == 0) {
+                    echo $failure;
+                }
+                unset($_SESSION["login_status"]);
+            }
+            ?>
+        </div>
+
         <div class="paragraph" style="border:0;">
             <form class="form" action="backend/login.php" method="POST" name="login-form">
                 <label for="username">Username</label>
